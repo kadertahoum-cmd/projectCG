@@ -1,0 +1,601 @@
+/* =========================
+   GOOGLE FONT
+========================= */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+/* =========================
+   RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f5f3ee;
+  color: #1f1f1f;
+  overflow-x: hidden;
+}
+
+/* =========================
+   VARIABLES
+========================= */
+:root {
+  --primary: #6b8f71;
+  --primary-dark: #3f6548;
+  --secondary: #d6c6a8;
+  --accent: #b98f48;
+  --dark: #121212;
+  --light: #ffffff;
+  --glass: rgba(255, 255, 255, 0.18);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --transition: 0.4s ease;
+}
+
+/* =========================
+   CUSTOM SCROLLBAR
+========================= */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
+}
+
+/* =========================
+   HEADER
+========================= */
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 8%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  backdrop-filter: blur(18px);
+  background: rgba(255, 253, 248, 0.9);
+  border-bottom: 1px solid rgba(107, 143, 113, 0.18);
+  box-shadow: 0 10px 28px rgba(31, 42, 32, 0.08);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+#logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: var(--shadow);
+}
+
+.logo-container h1 {
+  font-size: 1.5rem;
+  color: #24402b;
+  font-weight: 700;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.nav-links {
+  display: flex;
+  gap: 35px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #263529;
+  font-weight: 700;
+  position: relative;
+  transition: var(--transition);
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background: var(--accent);
+  transition: var(--transition);
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="page"] {
+  color: #3f6548;
+}
+
+.nav-links a:hover::after,
+.nav-links a[aria-current="page"]::after {
+  width: 100%;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 140px 8% 80px;
+  gap: 50px;
+
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+    url("https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=1600");
+
+  background-size: cover;
+  background-position: center;
+}
+
+/* =========================
+   HERO CONTENT
+========================= */
+.hero-content {
+  flex: 1;
+  animation: fadeLeft 1s ease;
+}
+
+.tagline {
+  display: inline-block;
+  padding: 10px 20px;
+  background: rgba(107, 143, 113, 0.16);
+  color: var(--primary-dark);
+  border-radius: 50px;
+  margin-bottom: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.hero-content h2 {
+  font-size: 4rem;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  color: #1f2a20;
+}
+
+.hero-content h3 {
+  font-size: 1.7rem;
+  color: var(--primary-dark);
+  margin-bottom: 25px;
+}
+
+.hero-content p {
+  line-height: 1.9;
+  max-width: 600px;
+  margin-bottom: 35px;
+  color: #555;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-outline,
+.btn-glass {
+  padding: 15px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  display: inline-block;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 10px 20px rgba(107, 143, 113, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-5px);
+}
+
+.btn-secondary {
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+.btn-secondary:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* =========================
+   HERO GALLERY
+========================= */
+.hero-gallery {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  animation: fadeRight 1.2s ease;
+}
+
+/* =========================
+   3D CARDS
+========================= */
+.seed-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.25);
+
+  backdrop-filter: blur(15px);
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+
+  transition: 0.5s ease;
+
+  transform-style: preserve-3d;
+}
+
+.seed-card:hover {
+  transform: rotateY(10deg) rotateX(8deg) translateY(-12px) scale(1.03);
+}
+
+.seed-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  transition: 0.6s ease;
+}
+
+.seed-card:hover img {
+  transform: scale(1.1);
+}
+
+.seed-card h4 {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 700;
+
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================
+   CONCEPT SECTION
+========================= */
+.concept {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+
+  padding: 120px 8%;
+}
+
+.concept-text {
+  flex: 1;
+}
+
+.section-subtitle {
+  color: var(--accent);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.concept-text h2 {
+  font-size: 3rem;
+  margin-bottom: 25px;
+  color: #24402b;
+}
+
+.concept-text p {
+  color: #555;
+  line-height: 1.9;
+  margin-bottom: 30px;
+}
+
+.concept-image {
+  flex: 1;
+}
+
+.concept-image img {
+  width: 100%;
+  border-radius: 30px;
+  box-shadow: var(--shadow);
+
+  transition: 0.5s ease;
+}
+
+.concept-image img:hover {
+  transform: scale(1.04);
+}
+
+/* =========================
+   GLASS SECTION
+========================= */
+.pack-banner {
+  min-height: 80vh;
+
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+    url("https://images.unsplash.com/photo-1468327768560-75b778cbb551?q=80&w=1600");
+
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 80px 8%;
+}
+
+.glass-box {
+  max-width: 850px;
+  text-align: center;
+
+  padding: 60px;
+
+  background: rgba(255, 255, 255, 0.15);
+
+  backdrop-filter: blur(15px);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  border-radius: 30px;
+
+  color: white;
+}
+
+.glass-box h2 {
+  font-size: 3rem;
+  margin-bottom: 25px;
+  color: #ffffff;
+}
+
+.glass-box p {
+  line-height: 2;
+  margin-bottom: 35px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+  background: #111;
+  color: #ddd;
+  padding-top: 80px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 50px;
+
+  padding: 0 8% 60px;
+}
+
+.footer h3 {
+  margin-bottom: 25px;
+  color: white;
+}
+
+.footer p,
+.footer a {
+  color: #bbb;
+  line-height: 2;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: white;
+}
+
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.whatsapp-float-home {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1200;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 132px;
+  min-height: 50px;
+  padding: 0 20px;
+  border-radius: 999px;
+  background: #25d366;
+  color: #ffffff;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 16px 34px rgba(37, 211, 102, 0.35);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.whatsapp-float-home:hover,
+.whatsapp-float-home:focus-visible {
+  transform: translateY(-4px);
+  background: #1ebe5d;
+  box-shadow: 0 22px 42px rgba(37, 211, 102, 0.45);
+  outline: none;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+.hidden-section {
+  opacity: 0;
+  transform: translateY(80px);
+  transition: 1s ease;
+}
+
+.show-section {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* =========================
+   DARK MODE
+========================= */
+body.dark-mode {
+  background: #111;
+  color: white;
+}
+
+body.dark-mode .header {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .hero {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=1600");
+}
+
+body.dark-mode p {
+  color: #ddd;
+}
+
+body.dark-mode .seed-card {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1100px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-content p {
+    margin: auto;
+    margin-bottom: 30px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .concept {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .nav-links {
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-content h2 {
+    font-size: 2.7rem;
+  }
+
+  .concept-text h2,
+  .glass-box h2 {
+    font-size: 2.2rem;
+  }
+
+  .hero-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .glass-box {
+    padding: 40px 25px;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero {
+    padding-top: 180px;
+  }
+
+  .hero-content h2 {
+    font-size: 2.2rem;
+  }
+
+  .hero-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-outline,
+  .btn-glass {
+    width: 100%;
+    text-align: center;
+  }
+
+  .whatsapp-float-home {
+    right: 16px;
+    bottom: 16px;
+    min-width: 112px;
+  }
+}
