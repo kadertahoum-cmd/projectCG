@@ -12,6 +12,10 @@ $messages = db()
     ->query('SELECT * FROM contact_messages ORDER BY created_at DESC LIMIT 100')
     ->fetchAll();
 
+$subscribers = db()
+    ->query('SELECT * FROM newsletter_subscribers ORDER BY created_at DESC LIMIT 200')
+    ->fetchAll();
+
 function e(string $value): string
 {
     return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
@@ -134,6 +138,33 @@ function e(string $value): string
               <td><?= e($message['subject']) ?></td>
               <td><?= e($message['message']) ?></td>
               <td><?= e($message['created_at']) ?></td>
+            </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+    <?php endif; ?>
+  </section>
+
+  <section>
+    <h2>Newsletter</h2>
+
+    <?php if ($subscribers === []): ?>
+      <p class="empty">Aucun abonne pour le moment.</p>
+    <?php else: ?>
+      <table>
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($subscribers as $subscriber): ?>
+            <tr>
+              <td><?= e($subscriber['email']) ?></td>
+              <td><?= e($subscriber['status']) ?></td>
+              <td><?= e($subscriber['created_at']) ?></td>
             </tr>
           <?php endforeach; ?>
         </tbody>

@@ -305,11 +305,45 @@ function setupContactForm() {
   });
 }
 
+function setupNewsletterForm() {
+  const newsletterForm = document.getElementById("newsletter-form");
+  const newsletterMessage = document.getElementById("newsletter-message");
+
+  if (!newsletterForm || !newsletterMessage) {
+    return;
+  }
+
+  newsletterForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(newsletterForm);
+    const email = formData.get("email").trim();
+    const button = newsletterForm.querySelector("button");
+
+    button.disabled = true;
+    newsletterMessage.className = "newsletter-message";
+    newsletterMessage.textContent = "Inscription en cours...";
+
+    try {
+      await postJson("api/newsletter.php", { email });
+      newsletterForm.reset();
+      newsletterMessage.classList.add("success");
+      newsletterMessage.textContent = "Merci. Votre inscription est confirmee.";
+    } catch (error) {
+      newsletterMessage.classList.add("error");
+      newsletterMessage.textContent = "Impossible de vous inscrire maintenant. Reessayez plus tard.";
+    } finally {
+      button.disabled = false;
+    }
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   createCheckoutModal();
   createWhatsAppButton();
   enableVaseTilt();
   setupContactForm();
+  setupNewsletterForm();
 
   document.addEventListener("click", (event) => {
     const buyVaseButton = event.target.closest(".btn-acheter");

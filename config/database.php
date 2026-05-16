@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 const DB_HOST = 'localhost';
@@ -6,7 +7,7 @@ const DB_NAME = 'laroseeternelle';
 const DB_USER = 'root';
 const DB_PASS = '';
 const ADMIN_USER = 'admin';
-const ADMIN_PASS = 'change-this-password';
+const ADMIN_PASS = 'Rose2026@Secure';
 
 function db(): PDO
 {

@@ -26,3 +26,10 @@ CREATE TABLE IF NOT EXISTS contact_messages (
   status ENUM('new', 'read', 'replied') NOT NULL DEFAULT 'new',
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS newsletter_subscribers (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  email VARCHAR(180) NOT NULL UNIQUE,
+  status ENUM('active', 'unsubscribed') NOT NULL DEFAULT 'active',
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;

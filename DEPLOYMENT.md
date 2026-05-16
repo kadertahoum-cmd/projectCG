@@ -18,6 +18,7 @@ This creates:
 
 - `orders`
 - `contact_messages`
+- `newsletter_subscribers`
 
 ## 3. Configure PHP database access
 
@@ -83,3 +84,8 @@ When a customer sends the contact form:
 1. The message is saved in MySQL through `api/contact.php`.
 2. WhatsApp opens with the prepared contact message.
 3. You can see messages in `/admin/`.
+
+When a customer subscribes to the newsletter:
+
+1. The email is saved in MySQL through `api/newsletter.php`.
+2. You can see subscribers in `/admin/`.
